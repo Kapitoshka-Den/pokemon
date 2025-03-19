@@ -1,6 +1,13 @@
 <script setup lang="ts"></script>
 <template>
-  <header></header>
+  <div class="wrapper">
+    <RouterLink :to="{ name: 'pokemon' }">Pokemon</RouterLink>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.wrapper {
+  padding: 10px;
+  background: var(--color-background);
+}
+</style>
