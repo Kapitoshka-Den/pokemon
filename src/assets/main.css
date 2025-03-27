@@ -1,15 +1,12 @@
 @import './base.css';
+@import './breakpoint.css';
 
 html,
-body {
-  height: 100dvh;
-  width: 100%;
-}
-
+body,
 #app {
+  margin: 0;
   height: 100%;
   width: 100%;
-  position: relative;
 }
 
 h1,

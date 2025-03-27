@@ -7,7 +7,11 @@ import BaseHeader from '@/core/components/BaseHeader.vue'
     <BaseHeader />
   </header>
   <main class="content">
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <KeepAlive :include="['PokemonPage']">
+        <component :is="Component" />
+      </KeepAlive>
+    </RouterView>
   </main>
 </template>
 
@@ -22,6 +26,7 @@ import BaseHeader from '@/core/components/BaseHeader.vue'
   z-index: 1;
 }
 .content {
-  flex: 1;
+  padding: 10px;
+  flex-grow: 1;
 }
 </style>

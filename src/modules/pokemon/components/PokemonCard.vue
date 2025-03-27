@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import BaseLike from '@/core/components/BaseLike.vue'
+import { useLikedPokemonStore } from '@/modules/pokemon/store/store'
+
 type Props = {
   name: string
   id: string
 }
 
 const props = defineProps<Props>()
+
+const state = useLikedPokemonStore()
+const { addLikedPokemons, removeLikedPokemons } = state
 </script>
 
 <template>
@@ -13,7 +19,14 @@ const props = defineProps<Props>()
       class="image"
       :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`"
     />
-    <span>{{ props.name }}</span>
+    <div class="name">
+      <span>{{ props.name }}</span>
+      <BaseLike
+        :is-like="state.isLiked(props.id)"
+        @like="addLikedPokemons(props.id)"
+        @unlike="removeLikedPokemons(props.id)"
+      />
+    </div>
   </RouterLink>
 </template>
 
@@ -39,5 +52,8 @@ const props = defineProps<Props>()
 .image {
   max-height: 300px;
   width: 100%;
+}
+.name {
+  display: flex;
 }
 </style>

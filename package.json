@@ -13,13 +13,18 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.7",
+    "markdown-it": "^14.1.0",
     "pinia": "^3.0.1",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "vue3-markdown": "^1.1.9",
+    "vue3-markdown-it": "^1.0.10"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
-    "@types/node": "^22.13.9",
+    "@types/node": "^22.13.10",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.5.0",

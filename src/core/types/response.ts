@@ -1,6 +1,8 @@
+import type { Url } from '@/core/types/url'
+
 export type BaseResponse<TEntity> = {
   count: number
-  next: string | null
+  next: Url | null
   previous: string | null
   results: TEntity[]
 }
