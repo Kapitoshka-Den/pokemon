@@ -13,12 +13,6 @@ export default defineConfig({
     host: true,
     allowedHosts: true,
   },
-  server: {
-    https: {
-      key: '../../certs/ca.key',
-      cert: '../../certs/ca.crt',
-    },
-  },
   test: {
     globals: true,
     environment: 'jsdom',
