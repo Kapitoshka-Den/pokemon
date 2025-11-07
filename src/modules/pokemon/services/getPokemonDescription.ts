@@ -6,8 +6,13 @@ type Description = {
 }
 
 export function getPokemonDescription(pokemonName: string) {
-  const options = {
+
+  const abortController = new AbortController()
+  const signal = abortController.signal
+
+  const options: RequestInit = {
     method: 'POST',
+    signal,
     headers: {
       Authorization: `Bearer ${import.meta.env.VITE_ZHIPU_KEY}`,
       'Content-Type': 'application/json',
@@ -23,9 +28,9 @@ export function getPokemonDescription(pokemonName: string) {
     options,
   )
 
-  const description = computed(() => data.data.value?.choices[0].message.content)
+  const description = computed(() => data.data.value?.choices[0]?.message.content)
 
-  return { ...data, data: description }
+  return { ...data, data: description, abortController }
 }
 
 //70191b0034be4c4eafb494930380acdc.zX7Sr09XVuIMGHpJ

@@ -1,15 +1,15 @@
 <script setup lang="ts"></script>
 <template>
   <div class="wrapper">
-    <RouterLink :to="{ name: 'pokemon' }"
-      ><img
+    <RouterLink :to="{ name: 'pokemon' }">
+      <img
         class="logo"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/404px-International_Pok%C3%A9mon_logo.svg.png"
       />
     </RouterLink>
-    <RouterLink class="link" exact-active-class="active-link" :to="{ name: 'pokemon' }"
-      >Pokemon</RouterLink
-    >
+    <RouterLink class="link" exact-active-class="active-link" :to="{ name: 'pokemon' }">
+      Pokemon
+    </RouterLink>
   </div>
 </template>
 

@@ -10,22 +10,22 @@ export const routes: RouteRecordRaw[] = [
     component: MainLayout,
     children: [
       {
-        path: '',
+        path: '/',
         name: 'pokemon',
         alias: 'pokemon',
         component: PokemonPage,
       },
       {
-        path: ':id',
+        path: 'pokemon/:id',
         name: 'pokemon-details',
         alias: 'pokemon/:id',
         component: PokemonDetailsPage,
       },
+      {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: NotFound,
+      },
     ],
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    name: 'not-found',
-    component: NotFound,
   },
 ]

@@ -6,6 +6,7 @@ import PokemonShortInfo from '@/modules/pokemon/components/PokemonShortInfo.vue'
 import type { PokemonDetails } from '@/modules/pokemon/models/PokemonDetails'
 import { getPokemonDescription } from '@/modules/pokemon/services/getPokemonDescription'
 import { useLikedPokemonStore } from '@/modules/pokemon/store/store'
+import { onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import Markdown from 'vue3-markdown-it'
 
@@ -17,9 +18,13 @@ const { data, isLoading } = useFetchData<PokemonDetails>(
 const state = useLikedPokemonStore()
 const { addLikedPokemons, removeLikedPokemons } = state
 
-const { data: description, isLoading: isLoadingDescription } = getPokemonDescription(
-  params.id ?? '',
-)
+const {
+  data: description,
+  isLoading: isLoadingDescription,
+  abortController,
+} = getPokemonDescription(params.id ?? '')
+
+onUnmounted(() => abortController.abort())
 </script>
 
 <template>

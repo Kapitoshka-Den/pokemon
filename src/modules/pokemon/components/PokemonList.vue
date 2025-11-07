@@ -9,9 +9,9 @@ const props = defineProps<{ data: BaseResponseModel[]; isHidden: boolean }>()
 
 <template>
   <div class="wrapper">
-    <div class="list">
+    <div class="list" v-if="props.data">
       <div v-for="(item, index) in props.data" :key="index">
-        <PokemonCard :name="item.name" :id="getId(item.url)" />
+        <PokemonCard v-if="getId(item.url)" :name="item.name" :id="getId(item.url)!" />
       </div>
     </div>
   </div>

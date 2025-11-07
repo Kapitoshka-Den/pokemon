@@ -4,7 +4,7 @@ import { useLikedPokemonStore } from '@/modules/pokemon/store/store'
 
 type Props = {
   name: string
-  id: string
+  id: string | number
 }
 
 const props = defineProps<Props>()

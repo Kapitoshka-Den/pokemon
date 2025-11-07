@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - '4001:4001'
+    command: npm run preview
+
+  test:
+    build: .
+    ports:
+      - '4002:4002'
+    command: npm run test-ui

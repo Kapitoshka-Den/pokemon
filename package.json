@@ -10,7 +10,9 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "test": "vitest",
+    "test-ui": "vitest --ui --coverage"
   },
   "dependencies": {
     "axios": "^1.8.4",
@@ -23,20 +25,26 @@
     "vue3-markdown-it": "^1.0.10"
   },
   "devDependencies": {
+    "@pinia/testing": "^1.0.0",
     "@tsconfig/node22": "^22.0.0",
-    "@types/node": "^22.13.10",
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@types/node": "^24.10.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitest/coverage-v8": "^4.0.8",
+    "@vitest/ui": "4.0.8",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.5.0",
-    "@vue/tsconfig": "^0.7.0",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.21.0",
-    "eslint-plugin-vue": "~10.0.0",
-    "jiti": "^2.4.2",
-    "npm-run-all2": "^7.0.2",
-    "prettier": "3.5.3",
+    "eslint-plugin-vue": "~10.5.1",
+    "jiti": "^2.6.1",
+    "jsdom": "^27.1.0",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "3.6.2",
     "typescript": "~5.8.0",
     "vite": "^6.2.1",
     "vite-plugin-vue-devtools": "^7.7.2",
+    "vitest": "^3.1.1",
     "vue-tsc": "^2.2.8"
   }
 }

@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -7,9 +8,33 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
-  server: {
+  preview: {
+    port: 4001,
     host: true,
     allowedHosts: true,
+  },
+  server: {
+    https: {
+      key: '../../certs/ca.key',
+      cert: '../../certs/ca.crt',
+    },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    css: false,
+    reporters: ['default', 'html'],
+    outputFile: './reports/test-results.html',
+    open: false,
+    ui: true,
+    coverage: {
+      provider: 'v8',
+      exclude: ['./**'],
+    },
+    api: {
+      port: 4002,
+      host: true,
+    },
   },
   resolve: {
     alias: {
